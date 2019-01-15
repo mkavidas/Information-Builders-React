@@ -5,7 +5,6 @@ import sampleData from "./sampleData.json"
 
 class App extends React.Component {
   state = {
-    page: 0,
     data: []
   };
 
@@ -41,17 +40,7 @@ class App extends React.Component {
       }, 250);
     });
   };
-/*
-  changePage = page => {
-    this.xhrRequest(`/myApiServer?page=${page}`).then(data => {
-      this.setState({
-        page: page,
-        data
-      });
-    });
-  };
 
-*/
   render() {
     const columns = [
         {
@@ -71,14 +60,14 @@ class App extends React.Component {
         {
          name: "Store Type",
          options: {
-          filter: true,
+          filter: false,
           sort: true,
          }
         },
         {
             name: "Brand Type",
             options: {
-             filter: true,
+             filter: false,
              sort: true,
             }
         },
@@ -111,28 +100,16 @@ class App extends React.Component {
             }
         },
        ];
-    const { data, page, count } = this.state;
+    const { data} = this.state;
 
     const options = {
       responsive: "scroll",
       serverSide: false,
-      page: page,
-      /*onTableChange: (action, tableState) => {
-        console.log(action, tableState);
-        // a developer could react to change on an action basis or
-        // examine the state as a whole and do whatever they want
-
-        switch (action) {
-          case "changePage":
-            this.changePage(tableState.page);
-            break;
-        }
-      }*/
     };
 
     return (
       <MUIDataTable
-        title={"ACME Employee list"}
+        title={"Information Builders Project"}
         data={data}
         columns={columns}
         options={options}
