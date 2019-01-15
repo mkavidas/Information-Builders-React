@@ -67,7 +67,7 @@ class App extends React.Component {
         {
             name: "Brand Type",
             options: {
-             filter: false,
+             filter: true,
              sort: true,
             }
         },
